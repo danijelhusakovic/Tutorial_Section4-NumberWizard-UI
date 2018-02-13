@@ -7,7 +7,7 @@ public class NumberWizard : MonoBehaviour
 	int max;
 	int min;
 	int guess;
-	int maxNumberOfGuesses = 8;
+	int maxNumberOfGuesses = 10;
 	
 	public Text textGuess;
 	public Text textNumberOfGuesses;
@@ -18,16 +18,16 @@ public class NumberWizard : MonoBehaviour
 	}
 	
 	void StartGame () {
-		max = 1000;
+		max = 1001;
 		min = 1;
-		guess = 500;
-		max = max + 1;
+		NextGuess();
 		textNumberOfGuesses.text = "" + maxNumberOfGuesses;
 		
 	}
 	
 	void NextGuess () {
-		guess = (max + min) / 2;
+		//guess = (max + min) / 2;
+		guess = Random.Range(min, 	max + 1);
 		textGuess.text = "" + guess;
 		maxNumberOfGuesses--;
 		textNumberOfGuesses.text = "" + maxNumberOfGuesses;
